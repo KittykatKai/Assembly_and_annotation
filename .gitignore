@@ -1,0 +1,10 @@
+Pyl-1/
+output_dir/
+*.fastq.gz
+*.fq.gz
+*.fa
+*.fasta
+*.gfa
+*.bin
+*.out
+*.err

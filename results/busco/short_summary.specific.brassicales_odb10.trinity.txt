@@ -1,0 +1,20 @@
+# BUSCO version is: 5.7.1 
+# The lineage dataset is: brassicales_odb10 (Creation date: 2024-01-08, number of genomes: 10, number of BUSCOs: 4596)
+# Summarized benchmarking in BUSCO notation for file /data/users/ksales/assembly_annotation_course/output_dir/trinity.Trinity.fasta
+# BUSCO was run in mode: euk_tran
+
+	***** Results: *****
+
+	C:79.2%[S:38.6%,D:40.6%],F:3.4%,M:17.4%,n:4596	   
+	3640	Complete BUSCOs (C)			   
+	1774	Complete and single-copy BUSCOs (S)	   
+	1866	Complete and duplicated BUSCOs (D)	   
+	157	Fragmented BUSCOs (F)			   
+	799	Missing BUSCOs (M)			   
+	4596	Total BUSCO groups searched		   
+
+Dependencies and versions:
+	hmmsearch: 3.1
+	metaeuk: 6.a5d39d9
+	python: sys.version_info(major=3, minor=7, micro=12, releaselevel='final', serial=0)
+	busco: 5.7.1

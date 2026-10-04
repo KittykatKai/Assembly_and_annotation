@@ -1,0 +1,31 @@
+All statistics are based on contigs of size >= 500 bp, unless otherwise noted (e.g., "# contigs (>= 0 bp)" and "Total length (>= 0 bp)" include all contigs).
+
+Assembly                    flye       hifiasm     lja       
+# contigs (>= 0 bp)         62         514         332       
+# contigs (>= 1000 bp)      58         514         332       
+# contigs (>= 5000 bp)      57         514         237       
+# contigs (>= 10000 bp)     55         514         158       
+# contigs (>= 25000 bp)     47         494         34        
+# contigs (>= 50000 bp)     46         106         21        
+Total length (>= 0 bp)      141728081  161727857   145958069 
+Total length (>= 1000 bp)   141725691  161727857   145958069 
+Total length (>= 5000 bp)   141721502  161727857   145701658 
+Total length (>= 10000 bp)  141703407  161727857   145081403 
+Total length (>= 25000 bp)  141573733  161288482   143162763 
+Total length (>= 50000 bp)  141548557  146846450   142754430 
+# contigs                   62         514         332       
+Largest contig              13978706   33652563    33622357  
+Total length                141728081  161727857   145958069 
+Estimated reference length  135000000  135000000   135000000 
+GC (%)                      36.41      36.58       36.71     
+N50                         5635704    9991083     11384185  
+NG50                        6001782    10127938    13493880  
+N90                         1773478    54286       4035433   
+NG90                        2339800    4359325     4359335   
+auN                         6412526.4  13982571.9  16002232.4
+auNG                        6732111.5  16750899.1  17301147.8
+L50                         9          5           4         
+LG50                        8          4           3         
+L90                         25         82          12        
+LG90                        22         10          10        
+# N's per 100 kbp           0.00       0.00        0.00      

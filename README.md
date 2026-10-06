@@ -1,6 +1,6 @@
 # Genome and transcriptome assembly of *Arabidopsis thaliana* Pyl-1
 
-Repository for the Genome and Transcriptome Assembly course (MSc Bioinformatics and Computational Biology, University of Bern, 2026).
+Repository for the Genome and Transcriptome Assembly course
 
 The genome of the *A. thaliana* accession **Pyl-1** was assembled from PacBio HiFi reads with three assemblers (**Flye**, **Hifiasm** and **LJA**), and a transcriptome of the accession **Sha** was assembled from Illumina RNA-seq reads with **Trinity**. The assemblies were evaluated with BUSCO, QUAST and Merqury, and compared with each other and with the TAIR10 reference using nucmer and mummerplot.
 
@@ -8,7 +8,7 @@ The genome of the *A. thaliana* accession **Pyl-1** was assembled from PacBio Hi
 
 ```
 .
-├── config.sh                 # all paths, parameters and software versions (edit this to rerun elsewhere)
+├── config.sh                 # all paths, parameters and software versions
 ├── run_pipeline.sh           # submits every step to SLURM with job dependencies
 ├── collect_results.sh        # copies summary files from output_dir/ into results/
 ├── scripts/
@@ -19,10 +19,7 @@ The genome of the *A. thaliana* accession **Pyl-1** was assembled from PacBio Hi
 ├── results/                  # small summary outputs tracked in Git
 │   ├── 03_evaluation/        # busco/, quast/, merqury/
 │   └── 04_comparison/        # nucmer/ (dot plots)
-└── logs/                     # SLURM logs (not tracked)
 ```
-
-Raw data and full outputs (`output_dir/`) are not tracked because of their size; they can be regenerated with the scripts.
 
 ## Input data
 
@@ -31,8 +28,6 @@ Raw data and full outputs (`output_dir/`) are not tracked because of their size;
 | Genome reads | Pyl-1, PacBio HiFi | ERR11437347 |
 | RNA-seq reads | Sha, Illumina paired end | ERR754081 |
 | Reference | *A. thaliana* TAIR10 (Col-0) genome and annotation | Ensembl Plants release 57 |
-
-On the IBU cluster these are found under `/data/courses/assembly-annotation-course/`.
 
 ## Software
 
@@ -54,9 +49,6 @@ All tools were run on the IBU HPC cluster (SLURM) through Apptainer containers, 
 Exact container paths are listed in `config.sh`.
 
 ## How to reproduce
-
-All commands are run from the repository root, because each job reads `config.sh` and writes its log to `logs/` relative to the submission directory.
-
 ```bash
 git clone https://github.com/KittykatKai/Assembly_and_annotation.git
 cd Assembly_and_annotation
@@ -64,17 +56,6 @@ cd Assembly_and_annotation
 bash run_pipeline.sh          # submits all jobs in the right order
 bash collect_results.sh       # once all jobs have finished
 ```
-
-To receive e-mail notifications, run `MAIL_USER=you@example.com bash run_pipeline.sh`.
-
-Single steps can also be submitted on their own, for example:
-
-```bash
-sbatch scripts/02_assembly/flye.sh
-sbatch --job-name=busco_lja scripts/03_evaluation/busco.sh lja
-sbatch --job-name=merqury_hifiasm scripts/03_evaluation/merqury.sh hifiasm
-```
-
 ### Workflow and dependencies
 
 | Step | Scripts | Runs after |

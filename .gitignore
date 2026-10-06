@@ -1,10 +1,20 @@
+# Raw data and analysis outputs are large and fully reproducible from the scripts
 Pyl-1/
+RNAseq_Sha/
 output_dir/
+
+# SLURM logs (folder kept, contents ignored)
+logs/*
+!logs/.gitkeep
+
+# Large sequence and intermediate files, in case any end up outside output_dir
 *.fastq.gz
 *.fq.gz
 *.fa
 *.fasta
 *.gfa
 *.bin
+*.delta
+*.meryl/
 *.out
 *.err

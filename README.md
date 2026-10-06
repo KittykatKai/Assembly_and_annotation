@@ -60,7 +60,7 @@ bash collect_results.sh       # once all jobs have finished
 
 | Step | Scripts | Runs after |
 | --- | --- | --- |
-| 1. QC | `fastqc.sh`, `fastp_hifi.sh`, `fastp_rnaseq.sh` | 'kmer.sh' | nothing |
+| 1. QC | `fastqc.sh`, `fastp_hifi.sh`, `fastp_rnaseq.sh`,'kmer.sh'| nothing |
 | 2. Assembly | `flye.sh`, `hifiasm.sh`, `lja.sh`, `trinity.sh` | nothing |
 | 3. k-mer database | `meryl_db.sh` | nothing |
 | 3. BUSCO | `busco.sh <assembler>` | the matching assembly |

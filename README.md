@@ -6,7 +6,7 @@ The genome of the *A. thaliana* accession **Pyl-1** was assembled from PacBio Hi
 
 ## Repository structure
 
-```
+
 .
 ├── config.sh                 # all paths, parameters and software versions
 ├── run_pipeline.sh           # submits every step to SLURM with job dependencies
@@ -19,7 +19,7 @@ The genome of the *A. thaliana* accession **Pyl-1** was assembled from PacBio Hi
 ├── results/                  # small summary outputs tracked in Git
 │   ├── 03_evaluation/        # busco/, quast/, merqury/
 │   └── 04_comparison/        # nucmer/ (dot plots)
-```
+
 
 ## Input data
 
@@ -55,7 +55,7 @@ cd Assembly_and_annotation
 # If not on the IBU cluster, edit the paths in config.sh first
 bash run_pipeline.sh          # submits all jobs in the right order
 bash collect_results.sh       # once all jobs have finished
-```
+
 ### Workflow and dependencies
 
 | Step | Scripts | Runs after |

@@ -12,7 +12,7 @@ The genome of the *A. thaliana* accession **Pyl-1** was assembled from PacBio Hi
 ├── run_pipeline.sh           # submits every step to SLURM with job dependencies
 ├── collect_results.sh        # copies summary files from output_dir/ into results/
 ├── scripts/
-│   ├── 01_qc/                # fastqc.sh, fastp_hifi.sh, fastp_rnaseq.sh
+│   ├── 01_qc/                # fastqc.sh, fastp_hifi.sh, fastp_rnaseq.sh, kmer.sh
 │   ├── 02_assembly/          # flye.sh, hifiasm.sh, lja.sh, trinity.sh
 │   ├── 03_evaluation/        # busco.sh, quast_no_ref.sh, quast_ref.sh, meryl_db.sh, merqury.sh
 │   └── 04_comparison/        # nucmer_mummerplot.sh
@@ -60,7 +60,7 @@ bash collect_results.sh       # once all jobs have finished
 
 | Step | Scripts | Runs after |
 | --- | --- | --- |
-| 1. QC | `fastqc.sh`, `fastp_hifi.sh`, `fastp_rnaseq.sh` | nothing |
+| 1. QC | `fastqc.sh`, `fastp_hifi.sh`, `fastp_rnaseq.sh` | 'kmer.sh' | nothing |
 | 2. Assembly | `flye.sh`, `hifiasm.sh`, `lja.sh`, `trinity.sh` | nothing |
 | 3. k-mer database | `meryl_db.sh` | nothing |
 | 3. BUSCO | `busco.sh <assembler>` | the matching assembly |

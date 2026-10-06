@@ -13,7 +13,7 @@ set -euo pipefail
  
 CONTAINER=/containers/apptainer/flye_2.9.5.sif
 WORKDIR=/data/users/ksales/assembly_annotation_course
-READS_DIR=$WORKDIR/Pyl-1
+READS_DIR=$WORKDIR/RNAseq_Sha
 OUTDIR=$WORKDIR/output_dir/flye
 THREADS=${SLURM_CPUS_PER_TASK:-16}
  

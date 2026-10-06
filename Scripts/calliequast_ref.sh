@@ -2,10 +2,10 @@
 #SBATCH --job-name=Quast_ref
 #SBATCH --output=/data/users/ksales/assembly_annotation_course/output_dir/quast_ef_%j.out
 #SBATCH --error=/data/users/ksales/assembly_annotation_course/output_dir/quast_ref_%j.err
-#SBATCH --time=1-00:00:00
+#SBATCH --time=02:00:00
 #SBATCH --mem=64G
 #SBATCH --cpus-per-task=16
-#SBATCH --partition=pibu_el8
+#SBATCH --partition=pshort_el8
 #SBATCH --array=0-0
 #SBATCH --mail-type=END,FAIL
 #SBATCH --mail-user=kai.sales@students.unibe.ch
@@ -25,16 +25,8 @@ ASSEMBLIES=(
 )
 LABELS="flye,hifiasm,lja"
  
-shopt -s nullglob
-REF=("$REF_DIR"/*.fa "$REF_DIR"/*.fasta "$REF_DIR"/*.fna "$REF_DIR"/*.fa.gz "$REF_DIR"/*.fasta.gz "$REF_DIR"/*.fna.gz)
-GFF=("$REF_DIR"/*.gff "$REF_DIR"/*.gff3 "$REF_DIR"/*.gtf "$REF_DIR"/*.gff.gz "$REF_DIR"/*.gff3.gz "$REF_DIR"/*.gtf.gz)
-shopt -u nullglob
- 
-if [[ ${#REF[@]} -ne 1 || ${#GFF[@]} -ne 1 ]]; then
-    echo "ERROR: expected exactly one reference FASTA and one annotation file in $REF_DIR" >&2
-    ls -l "$REF_DIR" >&2
-    exit 1
-fi
+REF=$REF_DIR/Arabidopsis_thaliana.TAIR10.dna.toplevel.fa
+GFF=$REF_DIR/Arabidopsis_thaliana.TAIR10.57.gff3
  
 for A in "${ASSEMBLIES[@]}"; do
     if [[ ! -s "$A" ]]; then
@@ -46,14 +38,14 @@ done
 mkdir -p "$OUTDIR"
  
 echo "Start: $(date)"
-echo "Reference:  ${REF[0]}"
-echo "Annotation: ${GFF[0]}"
+echo "Reference:  $REF"
+echo "Annotation: $GFF"
  
 apptainer exec --bind /data "$CONTAINER" quast.py \
     "${ASSEMBLIES[@]}" \
     --labels "$LABELS" \
-    -r "${REF[0]}" \
-    --features "${GFF[0]}" \
+    -r "$REF" \
+    --features "$GFF" \
     --eukaryote \
     --threads "$THREADS" \
     -o "$OUTDIR"

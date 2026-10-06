@@ -68,35 +68,6 @@ bash collect_results.sh       # once all jobs have finished
 | 3. QUAST | `quast_no_ref.sh`, `quast_ref.sh` | all three genome assemblies |
 | 4. Comparison | `nucmer_mummerplot.sh` | all three genome assemblies |
 
-## Results summary
-
-### Genome assemblies (Pyl-1)
-
-| Metric | Flye | Hifiasm | LJA |
-| --- | --- | --- | --- |
-| Number of contigs | 62 | 514 | 332 |
-| Total length (Mb) | 141.7 | 161.7 | 146.0 |
-| Largest contig (Mb) | 14.0 | 33.7 | 33.6 |
-| N50 (Mb) | 5.6 | 10.0 | 11.4 |
-| NG50 (Mb, 135 Mb genome) | 6.0 | 10.1 | 13.5 |
-| BUSCO complete (duplicated) | 99.9% (0.9%) | 98.2% (0.9%) | 99.9% (0.9%) |
-| Merqury QV | 63.0 | 54.4 | 59.8 |
-| Merqury k-mer completeness | 98.7% | 97.1% | 98.8% |
-| Genome fraction vs TAIR10 | 90.5% | 88.9% | 90.6% |
-| Duplication ratio vs TAIR10 | 1.057 | 1.271 | 1.101 |
-
-Misassemblies reported by QUAST against TAIR10 (Col-0) include genuine structural differences between the Pyl-1 and Col-0 accessions, so they should be interpreted alongside the reference free metrics (BUSCO, Merqury) and the dot plots.
-
-### Transcriptome assembly (Sha)
-
-| Metric | Trinity |
-| --- | --- |
-| BUSCO complete | 79.2% (single copy 38.6%, duplicated 40.6%) |
-| BUSCO fragmented | 3.4% |
-| BUSCO missing | 17.4% |
-
-Full reports are in `results/`.
-
 ## Author
 
 Callie Sales, University of Bern
